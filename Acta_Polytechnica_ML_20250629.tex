@@ -68,18 +68,20 @@ In further examples, \citep{7326254} evaluated the use of GRASS GIS modules for 
 
 To classify RS data, two types of approaches were carried out. The first is unsupervised classification based on the MaxLike approach using 'i.cluster' and 'i.maxlik' and clustering which extracted Digital Numbers (DN) of cell feature based on spectral reflectance of signals. The second is supervised classification using several ML methods, technically realised using GRASS GIS scripts.
 
-\subsection{Study Area}
+\subsection{Study area: A brief overview of the environmental settings}
 
 \hl{The topography of the Central Apennines is characterised by diversity of accumulated and depleted landforms that resulted from the millennial history of geologic and soil formations of Apennines, Figure} \ref{fig:soil}. \hl{The area of central Apennines is notable for high forest cover and high biodiversity according to the soil types. The dominating vegetation species include Silver fir, Norway spruce, Beech, Black pine, Birch). Examples of deciduous forests include such types as mixed oak \emph{Quercus [L.]}, hornbeam \emph{Carpinus [L.]}, and beech forests \emph{Fagus sylvatica [L.]}, in addition to vegetation typical for woodlands situated near streams, e.g. willow \emph{Salix [L.]} and aspen \emph{Populus tremula [L.]} (Ballelli, \& Allegrezza, 2016). }
 
+The distribution of dominating classes, such as European beech \emph{Fagus sylvatica [L.]} forests and other land cover classes is controlled by a variety of factors including the topographic structure, environmental and climate settings. The variability of environmental factors affects habitat structure and influences species composition of forests and vascular plants. In valleys, such areas are expanding and provide a valuable resource for locals, e.g., the production of fruit and lumber.  The variety of landforms and topographic structure created conditions for diverse soil types. This provides essential ecosystem services to habitats and includes, for instance, such precious forests as mixed silver fir \emph{(Abies alba Mill [L.])}. 
+
+Conifers, including silver fir \emph{Abies alba [L.]}, common spruce \emph{(Picea abies [L.])}, Austrian pine \emph{(Pinus nigra [L.])}, and cedar species \emph{(Cedrus elegans [L.])}, are frequent in plantations that were developed starting in the middle of the 20th century. In the past, areas of mountain forests were used as pastures, for agriculture fields, or also exploited as fuelwood and timber. Among deciduous species dominates European beech \emph{(Fagus sylvatica [L.])}, followed by sweet chestnut \emph{(Castanea sativa [L.])}, whose historical range was anthropogenically expanded for providing valuable resources for locals. These types of forest and plants are adjusted to the specific soil typical for central Italy. The intensive use of these resources persisted until the middle of the 20th century despite certain variations in the use of mountain forests caused by natural fluctuations in the population growth. 
+
 \begin{figure}[H]
-%\begin{figure*}
 \centering
 	\includegraphics[width=7cm]{Soil.jpg}
-\caption{Soil types in Italy according to FAO dataset.}
+\caption{Soil types in Italy according to the Food and Agricultural Organization (FAO) dataset: 10 major categories generalised from the database with thematic maps showing soil regions of Italy, scaled 1:5,000,000. Software: QGIS.}
 \label{fig:soil}
 \end{figure}
-%\end{figure*}
 
 %---------------------------->
 \subsection{Conceptual approach}
@@ -89,7 +91,6 @@ These options are not only intended to advance the image processing workflow usi
 
 \hl{State-of-the-art image classification approach depends on the regional landscape characteristics and specific property of land cover types. This approach was created to enhance change detection categorization for Italian landscapes and can be further extended to other regions. Landscape heterogeneity, surface ruggedness, slope curvature and regional spatial complexity of land surface may affect the degree of fragmentation. In contrast, the ML algorithms are more efficient and straightforward in cartographic implementation in comparison with traditional ways of image classification. The main goal and scope of this study which limits the approach was finding the best ML algorithm for spatial map aggregation. Here, we tested techniques of data integration and processing using several ML methods for image classification for the region of Central Apennines, Italy. }
 
-%---------------------------->
 \subsection{Workflow}
 \hl{This paper aims to demonstrate the effective use of the ML method of image processing which was pitted against the other traditional classification methods such as k-means Clustering and Maximum Likelihood (MaxLike) of GRASS GIS. The use of such advanced solution helps in providing automated tools of satellite image classification. }The brief description of the workflow is as follows. After data import and preprocessing, the images were first classified using the 'MaxLike' approach of the unsupervised classification which uses clustering (Figure \ref{fig04}). The numerical results of the classification are stored using the 'reportfile' function which contains the statistical parameters of cluster classes obtained from the classified images, as follows: class size, separation, percent convergence, number of iterations, means and standard deviations for Landsat bands and class separability matrix. 
 
@@ -102,9 +103,9 @@ Several ML algorithms embedded in the GRASS GIS have been used in this study to 
 
 \subsection{Dataset}
 
-Major challenges facing a successful classification of the RS data are cloudiness of the satellite images, coverage, data availability and resolution which enable to accurately detect the changing features over the landscapes. Therefore, we selected the quality satellite data with low cloudiness and optimal coverage of the study region. Specifically, we used the moderate resolution multispectral satellite images obtained from the Landsat Collection Level-2. The essential characteristics and key feature attributes of the Landsat 8-9 OLI/TIRS images are summarised in the Table \ref{tab01}. These data are provided from the Landsat sensors 8-9 Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS). 
+Major challenges facing a successful classification of the RS data are cloudiness of the satellite images, coverage, data availability and resolution which enable to accurately detect the changing features over the landscapes. Therefore, we selected the quality satellite data with low cloudiness and optimal coverage of the study region. Specifically, we used the moderate resolution multispectral satellite images obtained from the Landsat Collection Level-2. The essential characteristics and key feature attributes of the Landsat 8-9 OLI/TIRS images\hl{.} 
 
-These sensors provide the images of Earth's surface and present the collection of data suitable for monitoring landscape dynamics visible on the Earth's surface from space. Such images can be employed to evaluate trends in land cover changes over time when comparing multi-temporal datasets. Technically, the data were obtained from the United States Geological Survey (USGS) which presents a collection of the diverse geospatial datasets in the open source repository. The row/path of the Landsat swath is 30/191 for all the scenes, collected in Nadir. The images are projected automatically in the UTM Zone 33 for Italy in WGS84 Ellipsoid/Datum. 
+Technically, the data were obtained from the United States Geological Survey (USGS) which presents a collection of the diverse geospatial datasets in the open source repository. Specifically, the sensors used are Landsat 8-9 Operational Land Imager (OLI) and Thermal Infrared Sensor (TIRS). \hl{These sensors were chosen because they }provide the images of Earth's surface and present the collection of data suitable for monitoring landscape dynamics visible on the Earth's surface from space. Such images enable to evaluate trends in land cover changes over time when comparing multi-temporal datasets. The row/path of the Landsat swath is 30/191 for all the scenes, collected in Nadir. The images are projected automatically in the UTM Zone 33 for Italy in WGS84 Ellipsoid/Datum. 
 
 \subsection{Algorithms}
 
